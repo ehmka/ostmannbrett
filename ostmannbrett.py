@@ -4,6 +4,9 @@ class OstmannBrett:
 
    def convert(self, input):
       return "clips/"+input + ".mp3"
+   
+   def runMusic(self,input):
+     call(["mpg123", self.convert(input)])
 
 continueReading = True
 ostmann = OstmannBrett()
@@ -14,4 +17,4 @@ while(continueReading):
        curses.endwin()
        continueReading = False
     else:
-       call(["mpg123", ostmann.convert(inputA)])
+       ostmann.runMusic(inputA)
